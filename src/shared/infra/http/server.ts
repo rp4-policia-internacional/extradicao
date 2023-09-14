@@ -6,10 +6,13 @@ import "dotenv/config";
 import routes from "./routes";
 import AppError from "@shared/errors/AppError";
 
-import "@shared/infra/prisma";
+import "@shared/infra/prisma";//inicializar o banco
 import "@shared/container";
 
-const app = express();
+import 'reflect-metadata';
+
+
+const app = express ();
 
 app.use(cors());
 app.use(express.json());

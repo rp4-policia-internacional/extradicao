@@ -1,8 +1,8 @@
-import IPeopleRepository from "@modules/people/repositories/IPeopleRepository";
+import ExtradicaoRepository from "@modules/extradicao/infra/prisma/repositories/ExtradicaoRepository";
+import IExtradicaoRepository from "@modules/extradicao/repositories/IExtradicaoRepository";
 import { container } from "tsyringe";
-import PeopleRepository from "@modules/people/infra/prisma/repositories/PeopleRepository";
 
-container.registerSingleton<IPeopleRepository>(
-  'PeopleRepository',
-  PeopleRepository
-)
+container.registerSingleton<IExtradicaoRepository>(
+    'ExtradicaoRepository',
+    ExtradicaoRepository
+)//preparar o que vai ser executado quando chamar o reposition

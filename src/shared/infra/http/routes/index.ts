@@ -1,8 +1,9 @@
-import peopleRoutes from "@modules/people/infra/http/routes/people.routes";
-import { Router } from "express";
+// routes.ts
+import extradicaoRoutes from '@modules/extradicao/infra/http/routes/extradicao.routes';
+import { Router } from 'express';
 
-const routes = Router();
+const router = Router();
 
-routes.use("/people", peopleRoutes);
+router.use("/extradicao", extradicaoRoutes);
 
-export default routes;
+export default router;
