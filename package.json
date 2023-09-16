@@ -53,11 +53,5 @@
   },
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --ignore-watch node_modules src/shared/infra/http/server.ts"
-  },
-  "bugs": {
-    "url": "https://github.com/rp4-policia-internacional/extradicao/issues"
-  },
-  "homepage": "https://github.com/rp4-policia-internacional/extradicao#readme",
-  "keywords": [],
-  "description": ""
+  }
 }
