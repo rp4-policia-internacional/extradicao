@@ -13,7 +13,7 @@ datasource db {
 
 model Extradicao{
   id               String   @id @default(uuid())
-  paisDeOrigem String @db.VarChar
+  paisOrigem String @db.VarChar
   agente_id String @db.VarChar
   nome String @db.VarChar
   transporte String @db.VarChar

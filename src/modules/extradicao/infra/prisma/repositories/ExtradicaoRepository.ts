@@ -1,10 +1,10 @@
 import IExtradicaoDTO from "@modules/extradicao/dtos/IExtradicao.dto";
 import ExtradicaoEntity from "@modules/extradicao/entities/ExtradicaoEntity";
-import IVitimaRepository from "@modules/extradicao/repositories/IExtradicaoRepository";
+import IExtradicaoRepository from "@modules/extradicao/repositories/IExtradicaoRepository";
 import { prisma } from "@shared/infra/prisma";
 
-export default class VitimaRepository implements IVitimaRepository {
-    
+export default class ExtradicaoRepository implements IExtradicaoRepository {
+        
     public async create(data: IExtradicaoDTO): Promise<ExtradicaoEntity> {
         const extradicao = await prisma.extradicao.create({ data });
         return extradicao as unknown as ExtradicaoEntity;

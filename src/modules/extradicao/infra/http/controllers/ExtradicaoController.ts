@@ -20,16 +20,20 @@ export default class VitimaController {
             data_inicio,
             data_fim,
           } = req.body;
+           const formatedDate = new Date(data_inicio).toISOString();
+           const formatedDate2 = new Date(data_fim).toISOString();
+
 
         const createdExtradicao = await createExtradicao.execute({
            //id: "",// Preencha com o valor apropriado, ou deixe vazio se for um UUID gerado automaticamente
+
            id,
            paisOrigem,
            agente_id,
            nome,
            transporte,
-           data_inicio,
-           data_fim,
+           data_inicio: new Date(formatedDate),
+           data_fim: new Date(formatedDate2),
         });
 
         return res.status(201).json(createdExtradicao);
@@ -81,7 +85,8 @@ export default class VitimaController {
            transporte,
            data_inicio,
            data_fim,} = req.body;
-
+           const formatedDate = new Date(data_inicio).toISOString();
+           const formatedDate2 = new Date(data_fim).toISOString();
        
         const createExtradicao = await updateExtradicao
         .execute({
@@ -90,8 +95,8 @@ export default class VitimaController {
             agente_id,
             nome,
             transporte,
-            data_inicio,
-            data_fim,
+            data_inicio: new Date(formatedDate),
+            data_fim: new Date(formatedDate2),
         });
 
         return res.json(createExtradicao).status(201).send();
