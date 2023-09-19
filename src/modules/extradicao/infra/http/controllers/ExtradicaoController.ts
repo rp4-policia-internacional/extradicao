@@ -7,18 +7,18 @@ import ListExtradicaoService from "@modules/extradicao/services/ListExtradicaoSe
 import UpdateExtradicaoService from "@modules/extradicao/services/UpdateExtradicaoService";
 
 
-export default class VitimaController {
+export default class ExtadicaoController {
     public async create(req: Request, res: Response): Promise<Response>{
         const createExtradicao = container.resolve(CreateExtradicaoService);
-        
         const {
             id,
-            paisOrigem,
             agente_id,
             nome,
             transporte,
-            data_inicio,
+            data_inicio ,
             data_fim,
+            paisOrigem,
+
           } = req.body;
            const formatedDate = new Date(data_inicio).toISOString();
            const formatedDate2 = new Date(data_fim).toISOString();
@@ -28,12 +28,13 @@ export default class VitimaController {
            //id: "",// Preencha com o valor apropriado, ou deixe vazio se for um UUID gerado automaticamente
 
            id,
-           paisOrigem,
            agente_id,
            nome,
            transporte,
            data_inicio: new Date(formatedDate),
            data_fim: new Date(formatedDate2),
+           paisOrigem,
+
         });
 
         return res.status(201).json(createdExtradicao);
@@ -79,24 +80,26 @@ export default class VitimaController {
 
         const {
             id,
-           paisOrigem,
            agente_id,
            nome,
            transporte,
            data_inicio,
-           data_fim,} = req.body;
+           data_fim,
+           paisOrigem,
+        } = req.body;
            const formatedDate = new Date(data_inicio).toISOString();
            const formatedDate2 = new Date(data_fim).toISOString();
        
         const createExtradicao = await updateExtradicao
         .execute({
             id,
-            paisOrigem,
             agente_id,
             nome,
             transporte,
             data_inicio: new Date(formatedDate),
             data_fim: new Date(formatedDate2),
+            paisOrigem,
+
         });
 
         return res.json(createExtradicao).status(201).send();
