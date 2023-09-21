@@ -1,8 +1,8 @@
 export default interface IExtradicaoDTO {
   id: string;
-  paisOrigem: string;
+  id_pais_origem: string;
   agente_id: string;
-  nome:string;
+  id_criminoso:string;
   transporte:string;
   data_inicio: Date;
   data_fim: Date;

@@ -1,24 +1,24 @@
 class ExtradoicaoEntity {
   id: string;
-  paisOrigem: string;
+  id_pais_origem: string;
   agente_id: string;
-  nome:string;
+  id_criminoso:string;
   transporte:string;
   data_inicio: Date;
   data_fim: Date;
 
   constructor(
     id: string,
-    paisOrigem: string,
+    id_pais_origem: string,
     agente_id: string,
-    nome:string,
+    id_criminoso:string,
     transporte:string,
     data_inicio: Date,
     data_fim: Date
   ) {
     this.id= id;
-    this.nome = nome;
-    this.paisOrigem = paisOrigem;
+    this.id_criminoso = id_criminoso;
+    this.id_pais_origem = id_pais_origem;
     this.agente_id = agente_id;
     this.transporte = transporte;
     this.data_fim = data_fim;

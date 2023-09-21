@@ -14,9 +14,9 @@ datasource db {
 model Extradicao{
   id               String   @id @default(uuid())
   agente_id String @db.VarChar
-  nome String @db.VarChar
+  id_criminoso String @db.VarChar
   transporte String @db.VarChar
   data_inicio DateTime @db.Date
   data_fim DateTime @db.Date
-  paisOrigem String @db.VarChar
+  id_pais_origem String @db.VarChar
 }

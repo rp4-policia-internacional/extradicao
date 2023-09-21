@@ -13,11 +13,11 @@ export default class ExtadicaoController {
         const {
             id,
             agente_id,
-            nome,
+            id_criminoso,
             transporte,
             data_inicio ,
             data_fim,
-            paisOrigem,
+            id_pais_origem,
 
           } = req.body;
            const formatedDate = new Date(data_inicio).toISOString();
@@ -29,11 +29,11 @@ export default class ExtadicaoController {
 
            id,
            agente_id,
-           nome,
+           id_criminoso,
            transporte,
            data_inicio: new Date(formatedDate),
            data_fim: new Date(formatedDate2),
-           paisOrigem,
+           id_pais_origem,
 
         });
 
@@ -81,11 +81,11 @@ export default class ExtadicaoController {
         const {
             id,
            agente_id,
-           nome,
+           id_criminoso,
            transporte,
            data_inicio,
            data_fim,
-           paisOrigem,
+           id_pais_origem,
         } = req.body;
            const formatedDate = new Date(data_inicio).toISOString();
            const formatedDate2 = new Date(data_fim).toISOString();
@@ -94,11 +94,11 @@ export default class ExtadicaoController {
         .execute({
             id,
             agente_id,
-            nome,
+            id_criminoso,
             transporte,
             data_inicio: new Date(formatedDate),
             data_fim: new Date(formatedDate2),
-            paisOrigem,
+            id_pais_origem,
 
         });
 
