@@ -9,8 +9,8 @@ import AppError from "@shared/errors/AppError";
 import "@shared/infra/prisma";//inicializar o banco
 import "@shared/container";
 
-import 'reflect-metadata';
-
+import swaggerUI from 'swagger-ui-express';
+import swaggerDocument from '@shared/infra/http/routes/swagger.json';
 
 const app = express ();
 
@@ -34,6 +34,8 @@ app.use((err: Error, req: Request, res: Response, _: NextFunction) => {
     message: "internal server error",
   });
 });
+
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 const porta = process.env.PORT || 3333;
 
