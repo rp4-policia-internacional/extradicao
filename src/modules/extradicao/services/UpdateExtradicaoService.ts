@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 import { inject, injectable } from "tsyringe";
 import ExtradicaoEntity from "../entities/ExtradicaoEntity";
 import AppError from "@shared/errors/AppError";

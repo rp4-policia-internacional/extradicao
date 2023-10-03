@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 import IExtradicaoRepository from "../repositories/IExtradicaoRepository";
 import IExtradicaoDTO from "../dtos/IExtradicao.dto";
 import AppError from "@shared/errors/AppError";
