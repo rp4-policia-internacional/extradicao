@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 import { inject, injectable } from "tsyringe";
 import IExtradicaoRepository from "../repositories/IExtradicaoRepository";
 import AppError from "@shared/errors/AppError";
