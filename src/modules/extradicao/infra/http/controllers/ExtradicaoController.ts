@@ -24,7 +24,7 @@ export default class ExtadicaoController {
            const formatedDate2 = new Date(data_fim).toISOString();
 
 
-        const createdExtradicao = await createExtradicao.execute({
+        const createdExtradicao = await createExtradicao.handle({
            //id: "",// Preencha com o valor apropriado, ou deixe vazio se for um UUID gerado automaticamente
 
            id,
