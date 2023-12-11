@@ -6,21 +6,34 @@ import AppError from "@shared/errors/AppError";
 import { inject, injectable} from "tsyringe";
 
 import ExtradoicaoEntity from "../entities/ExtradicaoEntity";
-
+interface Handler{
+    setNext(handler: Handler):Handler;
+    handle(data:IExtradicaoDTO):Promise<ExtradoicaoEntity>
+}
 @injectable()
-class CreateExtradicaoService{
+class CreateExtradicaoService implements Handler{
+    private nextHandler: Handler | null = null;
 
     constructor(
         @inject('ExtradicaoRepository')
         private extradicaoRepository:IExtradicaoRepository
     ){}
 
-    public async execute(data: IExtradicaoDTO): Promise<ExtradoicaoEntity>{
+    public setNext(handler: Handler): Handler {
+        this.nextHandler = handler;
+        return handler;
+    }
+
+    public async handle(data: IExtradicaoDTO): Promise<ExtradoicaoEntity>{
         // regra de negocio aqui
 
         const createExtradicao = await this.extradicaoRepository.create(data);
-        return createExtradicao;
+          if(this.nextHandler){
+            return this.nextHandler.handle(data);
+          }
+          return createExtradicao;
     }
 }
+
 
 export default CreateExtradicaoService;
